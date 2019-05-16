@@ -1,0 +1,401 @@
+import java.util.*;  
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.JOptionPane; 
+public class Numberpuzzle{
+  
+   static JFrame frame = new JFrame("Number Puzzle");
+   static JPanel panel = new JPanel();   
+
+   public static void main (String[] args){
+      game();
+   }
+   
+   public static void game(){
+      frame.setVisible(true);         
+      frame.add(panel);
+      panel.setVisible(true);
+      panel.setBackground(new Color(44, 123, 115));
+      frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+      
+      JLabel label = new JLabel("Directions: Place Number Tiles in Ascending Order.)");
+      label.setFont(new Font("Sagoe ",Font.PLAIN,30));
+   
+      label.setBounds(300,20,800,150);
+      JLabel label2 = new JLabel("Solve the Puzzle to WIN :)");
+      label2.setFont(new Font("Sagoe ",Font.PLAIN,30));
+   
+      label2.setBounds(420,70,800,150);
+   
+   
+   
+      JButton button1=new JButton("8");  
+      button1.setBackground(new Color(166, 104, 141));
+      button1.setFont(new Font("Arial", Font.PLAIN, 100));
+   
+      button1.setBounds(400,200,150,150);  
+      
+      JButton button2=new JButton("7");  
+      button2.setBackground(new Color(171, 107, 145));
+      button2.setFont(new Font("Arial", Font.PLAIN, 100));
+   
+   
+      button2.setBounds(550,200,150,150);  
+      JButton button3=new JButton ("6");  
+      button3.setBackground(new Color(176, 110, 149));
+      button3.setFont(new Font("Arial", Font.PLAIN, 100));
+      button3.setBounds(700,200,150,150);  
+      
+      JButton button4=new JButton ("5");  
+      button4.setBounds(400,350,150,150); 
+      button4.setBackground(new Color(181, 120, 156));
+      button4.setFont(new Font("Arial", Font.PLAIN, 100));
+   
+   
+      JButton button5=new JButton ("4");  
+      button5.setBounds(550,350,150,150); 
+      button5.setBackground(new Color(186, 130, 163));
+      button5.setFont(new Font("Arial", Font.PLAIN, 100));
+   
+   
+      JButton button6=new JButton ("3");  
+      button6.setBounds(700,350,150,150);
+      button6.setBackground(new Color(191, 139, 170));
+      button6.setFont(new Font("Arial", Font.PLAIN, 100));
+   
+      JButton button7=new JButton ("2");  
+      button7.setBounds(400,500,150,150);
+      button7.setBackground(new Color(196, 146, 175));
+      button7.setFont(new Font("Arial", Font.PLAIN, 100));
+   
+      JButton button8=new JButton ("1");
+      button8.setBounds(550,500,150,150);    
+      button8.setBackground(new Color(201, 156, 182));
+      button8.setFont(new Font("Arial", Font.PLAIN, 100));
+   
+      JButton button9=new JButton ("");  
+      button9.setBounds(700,500,150,150); 
+      button9.setBackground(new Color( 63, 44, 55 ));
+      button9.setFont(new Font("Arial", Font.PLAIN, 100));
+   
+      
+      panel.add(label);
+      panel.add(label2);
+      panel.add(button1);
+      panel.add(button2);
+      panel.add(button3);
+      panel.add(button4);
+      panel.add(button5);
+      panel.add(button6);
+      panel.add(button7);
+      panel.add(button8);
+      panel.add(button9);
+      panel.setLayout(null); 
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+         
+      button9.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button9.getLabel(); 
+                        if(button6.getLabel().equals("")){  
+                           Color a =  button6.getBackground();//swaps button's color
+                           button6.setBackground( button9.getBackground()); 
+                           button9.setBackground(a);
+                           
+                           button6.setLabel(label1);  
+                           button9.setLabel(""); 
+                                                         
+                        }  
+                        else if(button8.getLabel().equals("")){  
+                           Color a =  button8.getBackground();
+                        
+                           button8.setLabel(label1);  
+                           button9.setLabel("");  
+                           button8.setBackground( button9.getBackground());  
+                           button9.setBackground(a);
+                        
+                        }              
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!!");
+                         
+                        }                }
+                  });
+   
+   
+      button8.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button8.getLabel();  
+                        if(button9.getLabel().equals("")){  
+                           Color a =  button9.getBackground();//swaps button's color
+                           button9.setBackground( button8.getBackground()); 
+                           button8.setBackground(a);
+                        
+                           button9.setLabel(label1);  
+                           button8.setLabel("");  
+                        }  
+                        else if(button5.getLabel().equals("")){  
+                           Color a =  button5.getBackground();//swaps button's color
+                           button5.setBackground( button8.getBackground()); 
+                           button8.setBackground(a);
+                           button5.setLabel(label1);  
+                           button8.setLabel("");  
+                        }    
+                        else if(button7.getLabel().equals("")){  
+                           Color a =  button7.getBackground();//swaps button's color
+                           button7.setBackground( button8.getBackground()); 
+                           button8.setBackground(a);
+                           button7.setLabel(label1);  
+                           button8.setLabel("");  
+                        }   
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!! Click Ok to play again");
+                        
+                        }                             }
+                  });
+   
+   
+            
+      button7.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button7.getLabel();  
+                        if(button4.getLabel().equals("")){  
+                           Color a =  button4.getBackground();//swaps button's color
+                           button4.setBackground( button7.getBackground()); 
+                           button7.setBackground(a);
+                           button4.setLabel(label1);  
+                           button7.setLabel("");  
+                        }  
+                        else if(button8.getLabel().equals("")){  
+                           Color a =  button8.getBackground();//swaps button's color
+                           button8.setBackground( button7.getBackground()); 
+                           button7.setBackground(a);
+                           button8.setLabel(label1);  
+                           button7.setLabel("");  
+                        }    
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!! Click Ok to play again");
+                         
+                        }                            }
+                  });
+   
+      button6.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button6.getLabel();  
+                        if(button9.getLabel().equals("")){  
+                           Color a =  button9.getBackground();//swaps button's color
+                           button9.setBackground( button6.getBackground()); 
+                           button6.setBackground(a);
+                           button9.setLabel(label1);  
+                           button6.setLabel("");  
+                        }  
+                        else if(button5.getLabel().equals("")){  
+                           Color a =  button5.getBackground();//swaps button's color
+                           button5.setBackground( button6.getBackground()); 
+                           button6.setBackground(a);
+                           button5.setLabel(label1);  
+                           button6.setLabel("");  
+                        }    
+                        else if(button3.getLabel().equals("")){  
+                           Color a =  button3.getBackground();//swaps button's color
+                           button3.setBackground( button6.getBackground()); 
+                           button6.setBackground(a);
+                           button3.setLabel(label1);  
+                           button6.setLabel("");  
+                        }     
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!! Click Ok to play again");
+                         
+                        }                           }
+                  });
+   
+      button5.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button5.getLabel();  
+                        if(button2.getLabel().equals("")){  
+                           Color a =  button2.getBackground();//swaps button's color
+                           button2.setBackground( button5.getBackground()); 
+                           button5.setBackground(a);
+                           button2.setLabel(label1);  
+                           button5.setLabel("");  
+                        }  
+                        else if(button4.getLabel().equals("")){  
+                           Color a =  button4.getBackground();//swaps button's color
+                           button4.setBackground( button5.getBackground()); 
+                           button5.setBackground(a);
+                           button4.setLabel(label1);  
+                           button5.setLabel("");  
+                        }    
+                        else if(button8.getLabel().equals("")){  
+                           Color a =  button8.getBackground();//swaps button's color
+                           button8.setBackground( button5.getBackground()); 
+                           button5.setBackground(a);
+                           button8.setLabel(label1);  
+                           button5.setLabel("");  
+                        }    
+                        else if(button6.getLabel().equals("")){  
+                           Color a =  button6.getBackground();//swaps button's color
+                           button6.setBackground( button5.getBackground()); 
+                           button5.setBackground(a);
+                           button6.setLabel(label1);  
+                           button5.setLabel("");  
+                        }     
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!! Click Ok to play again");
+                        }                         }
+                  });
+   
+           
+      button4.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button4.getLabel();  
+                        if(button7.getLabel().equals("")){  
+                           Color a =  button7.getBackground();//swaps button's color
+                           button7.setBackground( button4.getBackground()); 
+                           button4.setBackground(a);
+                           button7.setLabel(label1);  
+                           button4.setLabel("");  
+                        }  
+                        else if(button5.getLabel().equals("")){  
+                           Color a =  button5.getBackground();//swaps button's color
+                           button5.setBackground( button4.getBackground()); 
+                           button4.setBackground(a);
+                           button5.setLabel(label1);  
+                           button4.setLabel("");  
+                        }    
+                        else if(button1.getLabel().equals("")){  
+                           Color a =  button1.getBackground();//swaps button's color
+                           button1.setBackground( button4.getBackground()); 
+                           button4.setBackground(a);
+                           button1.setLabel(label1);  
+                           button4.setLabel("");  
+                        }    
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!! Click Ok to play again");
+                        
+                        }                            }
+                  });
+   
+      button3.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button3.getLabel();  
+                        if(button6.getLabel().equals("")){  
+                           Color a =  button6.getBackground();//swaps button's color
+                           button6.setBackground( button3.getBackground()); 
+                           button3.setBackground(a);
+                           button6.setLabel(label1);  
+                           button3.setLabel("");  
+                        }  
+                        
+                        else if(button2.getLabel().equals("")){  
+                           Color a =  button2.getBackground();//swaps button's color
+                           button2.setBackground( button3.getBackground()); 
+                           button3.setBackground(a);
+                           button2.setLabel(label1);  
+                           button3.setLabel("");  
+                        }     
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!! Click Ok to play again");
+                        
+                        }                           }
+                  });
+   
+      button2.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button2.getLabel();  
+                        if(button5.getLabel().equals("")){  
+                           Color a =  button5.getBackground();//swaps button's color
+                           button5.setBackground( button2.getBackground()); 
+                           button2.setBackground(a);
+                           button5.setLabel(label1);  
+                           button2.setLabel("");  
+                        }  
+                        else if(button1.getLabel().equals("")){ 
+                           Color a =  button1.getBackground();//swaps button's color
+                           button1.setBackground( button2.getBackground()); 
+                           button2.setBackground(a); 
+                           button1.setLabel(label1);  
+                           button2.setLabel("");  
+                        }    
+                        else if(button3.getLabel().equals("")){  
+                           Color a =  button3.getBackground();//swaps button's color
+                           button3.setBackground( button2.getBackground()); 
+                           button2.setBackground(a);
+                           button3.setLabel(label1);  
+                           button2.setLabel("");  
+                        }     
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!! Click Ok to play again");
+                        }                         }
+                  });
+   
+   
+      button1.addActionListener(
+                  new ActionListener() {
+                     public void actionPerformed(ActionEvent e){
+                     
+                        String label1=button1.getLabel();  
+                        if(button2.getLabel().equals("")){  
+                           Color a =  button2.getBackground();//swaps button's color
+                           button2.setBackground( button1.getBackground()); 
+                           button1.setBackground(a);
+                           button2.setLabel(label1);  
+                           button1.setLabel("");  
+                        } 
+                          
+                        else if(button4.getLabel().equals("")){  
+                           Color a =  button4.getBackground();//swaps button's color
+                           button4.setBackground( button1.getBackground()); 
+                           button1.setBackground(a);
+                           button4.setLabel(label1);  
+                           button1.setLabel("");  
+                        }     
+                        if(button1.getLabel().equals("1")&&button2.getLabel().equals("2")&&button3.getLabel()    
+                        .equals("3")&&button4.getLabel().equals("4")&&button5.getLabel().equals("5")    
+                        &&button6.getLabel().equals("6")&&button7.getLabel().equals("7")&&button8.getLabel()    
+                        .equals("8")&&button9.getLabel().equals("")){     
+                           JOptionPane.showMessageDialog(null,"congratulations, YOU WON!!! Click Ok to play again");
+                        
+                        }                           }
+                  });
+   }}
